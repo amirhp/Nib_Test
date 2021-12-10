@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using NIB_Test_Server.DAL;
 
 namespace NIB_Test_Server
 {
@@ -26,6 +27,8 @@ namespace NIB_Test_Server
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddTransient<IJobRepository, JobRepository>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
