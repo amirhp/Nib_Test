@@ -1,11 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Configuration;
-using NIB_Test_Server.DAL;
+using NIB_Test_Server.DAL.Interfaces;
 using NIB_Test_Server.DAL.Model;
 
 namespace NIB_Test_Server.Controllers
@@ -16,9 +15,7 @@ namespace NIB_Test_Server.Controllers
     {
         private readonly ILogger<JobController> _logger;
         private readonly IJobRepository _jobRepository;
-
         
-
         public JobController(ILogger<JobController> logger, IJobRepository  jobRepository)
         {
             _logger = logger;
@@ -30,9 +27,13 @@ namespace NIB_Test_Server.Controllers
 
         public async Task<IEnumerable<Job>> GetAsync()
         {
-            return await _jobRepository.Get();
+            var jobs = await _jobRepository.GetAsync();
+            foreach (var job in jobs)
+            {
+                job.Description = job.Description.Substring(0, Math.Min(job.Description.Length, 255));
+            }
+            return jobs;
         }
-
 
         [HttpGet]
         [Route("{JobId:int}")]

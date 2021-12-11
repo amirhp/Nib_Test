@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
 using NIB_Test_Server.DAL.Interfaces;
@@ -9,29 +11,24 @@ namespace NIB_Test_Server.DAL.Services
 {
     public class JobRepository : IJobRepository
     {
-		public async Task<IList<Job>> GetAsync()
+        public async Task<IList<Job>> GetAsync()
         {
             string fileName = "Data.json";
             using FileStream openStream = File.OpenRead(fileName);
-
-            IList<Job> jobs =
-                await JsonSerializer.DeserializeAsync<IList<Job>>(openStream);
-
-			return jobs;
+            return await JsonSerializer.DeserializeAsync<IList<Job>>(openStream);
 		}
 
 		public void Save()
 		{
-			//saves the invoice to the json
 		}
 
-		public void Add( Job invoice )
+		public void Add( Job location )
 		{
 		}
 
-        public Task<Job> GetJobByIdAsync(int id)
+        public Job GetJobById(int id)
         {
-            throw new System.NotImplementedException();
+            return GetAsync().Result.FirstOrDefault(x=>x.Id == id);
         }
     }
 }

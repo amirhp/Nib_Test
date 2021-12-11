@@ -9,7 +9,7 @@ namespace NIB_Test_Server.DAL.Interfaces
 
         void Save();
 
-        void Add(T data);
+        void Add(T location);
 
     }
 }

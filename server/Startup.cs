@@ -11,6 +11,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using NIB_Test_Server.DAL;
+using NIB_Test_Server.DAL.Interfaces;
+using NIB_Test_Server.DAL.Services;
 
 namespace NIB_Test_Server
 {
@@ -28,6 +30,7 @@ namespace NIB_Test_Server
         {
             services.AddControllers();
             services.AddTransient<IJobRepository, JobRepository>();
+            services.AddTransient<ILocationRepository, LocationRepository>();
 
         }
 

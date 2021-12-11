@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
+using NIB_Test_Server.DAL.Interfaces;
 using NIB_Test_Server.DAL.Model;
 
 namespace NIB_Test_Server.Controllers
@@ -14,18 +15,21 @@ namespace NIB_Test_Server.Controllers
     public class LocationController : ControllerBase
     {
         private readonly ILogger<LocationController> _logger;
+        private readonly ILocationRepository _locationRepository;
 
-        public LocationController(ILogger<LocationController> logger, IConfiguration configuration)
+        public LocationController(ILogger<LocationController> logger, ILocationRepository locationRepository)
         {
             _logger = logger;
+            _locationRepository = locationRepository;
+
         }
 
         [HttpGet]
         [Route("")]
 
-        public IEnumerable<Location> Get()
+        public async Task<IEnumerable<Location>> GetAsync()
         {
-            return Enumerable.Empty<Location>();
+            return await _locationRepository.GetAsync();
         }
 
 

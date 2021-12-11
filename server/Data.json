@@ -2,11 +2,11 @@
   {
     "id": 1,
     "title": "Senior Developer",
-    "description": "As a senior developer you."
+    "description": "Senior Developer"
   },
   {
-  "id": 1,
-  "title": "Senior Developer",
-  "description": "As a senior developer you As a senior developer youAs a senior developer youAs a senior developer you."
-}
+    "id": 2,
+    "title": "Senior Developer",
+    "description": "We are currently looking for a driven Quality Analyst with a minimum of 3 years experience to help us expand and maintain our Cloud ERP hosting solution. In this role analysts can use their exceptional analytical and communication skills to collaborate and deliver value. You will be involved in the planning, managing of risk and deliver of features, shaping our quality strategy and maintaining & enhancing our automation test suite.The Quality Analyst will play a pivotal role in providing strong guidance in the best practices of test automation. You will help drive teams to think about risks, identify defects as well as challenge and voice opinions, that will make a huge difference to the continuous development of various products and systems. Establishing relationships and empowering teams will make quality assurance the center of how we deliver software and deepens the goal for product and technical excellence."
+  }
 ]
