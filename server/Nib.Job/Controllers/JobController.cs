@@ -30,7 +30,7 @@ namespace NIB_Test_Server.Controllers
 
         public async Task<IEnumerable<Job>> GetAsync()
         {
-            var jobs = await _jobRepository.GetAsync();
+             var jobs = await _jobRepository.GetAsync();
             foreach (var job in jobs)
             {
                 job.Description = job.Description.Substring(0, Math.Min(job.Description.Length, 127));

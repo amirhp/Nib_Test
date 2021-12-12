@@ -2,7 +2,7 @@ version: '3'
 
 services: 
   server:
-    build: ./server
+    build: ./server/Nib.Job
     expose:
       - "${API_SERVER_PORT}"
     environment: 
@@ -13,7 +13,7 @@ services:
       - "${API_SERVER_PORT}:${API_SERVER_PORT}"
     volumes: 
       - ./server/:/srv/app/server/
-    command: npm start
+    command: dotnet build
   
   frontend:
     build: ./frontend

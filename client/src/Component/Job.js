@@ -16,6 +16,7 @@ export default function Job() {
         localStorage.setItem('location', location);
 
     }
+    
     useEffect(() => {
         GetJob()
             .then(response => setJobList(response));
@@ -37,10 +38,13 @@ export default function Job() {
                 </select>
             </div>
 
-<hr className="m-2"/>
+            <hr className="m-2" />
 
             <div className="w-full bg-white rounded-lg shadow-lg">
-                <ul className="divide-y-2 divide-gray-100">
+                <ul className="divide-y-2 divide-gray-100"
+                id="job-list"
+                data-testid="job-list"
+                >
                     {joblist.map((x) =>
                         <li className="p-3 hover:bg-blue-600 hover:text-blue-200">
                             <Link to={{
@@ -55,8 +59,6 @@ export default function Job() {
 
                 </ul>
             </div>
-
-
 
         </>
     );
