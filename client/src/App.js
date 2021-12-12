@@ -1,26 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+
+import Layout from './Component/Layout';
 import Job from './Component/Job';
 import JobDetails from './Component/JobDetails';
 
+import {
+  Routes ,
+  Route,
+  Navigate
+} from "react-router-dom";
+
 function App() {
+  console.log(process.env);
   return (
-    <Layout >
-      <img src={logo} alt="logo" />
+<>
+     <Routes >
+        <Route exact path="/" element={<Job />} />
 
-      <Switch>
-        <Route exact path="/">
-          <Redirect to="/jobs" />
-        </Route>
-        <Route path="/jobs">
-          <Job />
-        </Route>
-        <Route path="/jobsdetail">
-          <JobDetails />
-        </Route>
-      </Switch>
-    </Layout>
+        <Route path="/jobs" element={<Job />} />
 
+        <Route path="/jobsdetail" element={<JobDetails />}/>
+
+      </Routes > 
+</>
   );
 }
 

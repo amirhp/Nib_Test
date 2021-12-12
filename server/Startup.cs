@@ -31,6 +31,23 @@ namespace NIB_Test_Server
             services.AddControllers();
             services.AddTransient<IJobRepository, JobRepository>();
             services.AddTransient<ILocationRepository, LocationRepository>();
+            
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsApi",
+                    builder => builder.WithOrigins("http://localhost:3000", "http://localhost:3001")
+                        .AllowAnyHeader()
+                        .AllowAnyMethod()
+                        .WithMethods("GET", "POST", "HEAD", "PUT", "DELETE", "OPTIONS")
+                    );
+                options.AddPolicy("CorsPolicy",
+                    builder =>
+                    {
+                        builder.WithOrigins("*")
+                            .AllowAnyHeader()
+                            .AllowAnyMethod();
+                    });
+            });
 
         }
 
@@ -46,12 +63,16 @@ namespace NIB_Test_Server
 
             app.UseRouting();
 
+            app.UseCors();
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
+
+
         }
     }
 }

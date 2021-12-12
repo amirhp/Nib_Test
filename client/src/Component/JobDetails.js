@@ -1,6 +1,6 @@
 import React from 'react';
 
-function JobDetails() {
+export default function JobDetails() {
     return (
         <div></div>
     );

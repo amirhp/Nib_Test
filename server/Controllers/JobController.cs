@@ -4,11 +4,13 @@ using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Cors;
 using NIB_Test_Server.DAL.Interfaces;
 using NIB_Test_Server.DAL.Model;
 
 namespace NIB_Test_Server.Controllers
 {
+    [EnableCors("CorsPolicy")]
     [ApiController]
     [Route("[controller]")]
     public class JobController : ControllerBase
@@ -24,6 +26,7 @@ namespace NIB_Test_Server.Controllers
 
         [HttpGet]
         [Route("")]
+        [EnableCors("CorsPolicy")]
 
         public async Task<IEnumerable<Job>> GetAsync()
         {
@@ -37,6 +40,7 @@ namespace NIB_Test_Server.Controllers
 
         [HttpGet]
         [Route("{JobId:int}")]
+        [EnableCors("CorsPolicy")]
 
         public IEnumerable<Job> Get(int JobId)
         {

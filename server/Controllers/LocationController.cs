@@ -4,12 +4,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.Extensions.Configuration;
 using NIB_Test_Server.DAL.Interfaces;
 using NIB_Test_Server.DAL.Model;
 
 namespace NIB_Test_Server.Controllers
 {
+    [EnableCors("CorsApi")]
     [ApiController]
     [Route("[controller]")]
     public class LocationController : ControllerBase
