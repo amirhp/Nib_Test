@@ -5,8 +5,6 @@ using Moq;
 using Xunit;
 using NIB_Test_Server.Controllers;
 using NIB_Test_Server.DAL.Model;
-using NIB_Test_Server.DAL.Services;
-using Microsoft.AspNetCore.Mvc;
 using NIB_Test_Server.DAL.Interfaces;
 
 namespace NIB_Test_SNIB_Test_Server.Test
@@ -86,7 +84,7 @@ namespace NIB_Test_SNIB_Test_Server.Test
 
             // Assert
             Assert.NotNull(result);
-            Assert.Equal(1, result.First().Id);
+            Assert.Equal(1, result.Id);
         }
 
     }
