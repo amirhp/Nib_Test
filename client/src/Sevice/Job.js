@@ -7,4 +7,10 @@ function GetJob()
 }
 
 
-export  {GetJob};
+function GetJobById(id)
+{
+    var jobUrl = process.env.REACT_APP_Server_Address+'/job/'+id;
+    return fetchWrapper.get(jobUrl);
+}
+
+export  {GetJob,GetJobById};

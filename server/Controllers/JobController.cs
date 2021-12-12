@@ -33,7 +33,7 @@ namespace NIB_Test_Server.Controllers
             var jobs = await _jobRepository.GetAsync();
             foreach (var job in jobs)
             {
-                job.Description = job.Description.Substring(0, Math.Min(job.Description.Length, 255));
+                job.Description = job.Description.Substring(0, Math.Min(job.Description.Length, 127));
             }
             return jobs;
         }
@@ -42,9 +42,9 @@ namespace NIB_Test_Server.Controllers
         [Route("{JobId:int}")]
         [EnableCors("CorsPolicy")]
 
-        public IEnumerable<Job> Get(int JobId)
+        public Job Get(int jobId)
         {
-            return Enumerable.Empty<Job>();
+            return _jobRepository.GetJobById(jobId);
         }
 
     }
