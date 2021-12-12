@@ -14,7 +14,11 @@ export default function JobDetail(props) {
     return (
         <div>
         {job!=null && 
-            <div>{job.title}</div>}
+        <>
+            <div className='font-bold m-2'>{job.title}</div>
+            <span >{job.description}</span>
+        </>
+        }
         </div>
     );
 }

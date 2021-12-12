@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\server\NIB Test Server.csproj" />
+    <ProjectReference Include="..\Nib.Job\NIB Test Server.csproj" />
   </ItemGroup>
 
 </Project>
